@@ -4,18 +4,11 @@ import UIKit
 
 var str = "Hello, playground"
 
-var arr = ["this","is","my","array"]
+var arr = [1,2,3,4,5]
 
-println(arr)
+var reversedarr = [AnyObject]()
 
-println(reverse(arr))
-
-/* http://stackoverflow.com/questions/30762152/reversing-strings-in-an-array-with-swift */
-var anotherArr = ["jack","george","captain","wendy"]
-for (index, word) in enumerate(anotherArr) {
-let reversed = reverse(word)
-let letters = reversed.map({ String($0) })
-let joined = "".join(letters)
-anotherArr[index] = joined
+for num in arr {
+  reversedarr.insert(num, atIndex: 0)
 }
-anotherArr
+println(reversedarr)
