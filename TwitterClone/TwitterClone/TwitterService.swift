@@ -12,9 +12,14 @@ import Social
 
 
 class TwitterService {
-  class func tweetsFromHomeTimeline(account : ACAccount, completionHandler : (String?, [Tweet]?) -> (Void)) {
+  //singleton
+  static let sharedService = TwitterService()
+  var account: ACAccount?
+  private init() {}
+  class func tweetsFromHomeTimeline(completionHandler : (String?, [Tweet]?) -> (Void)) {
     let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: NSURL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, parameters: nil)
-    request.account = account
+    //above is where i put how many tweets i want and that min max older newer thing
+    request.account = self.sharedService.account
     request.performRequestWithHandler { (data, response, error) -> Void in
       if let error = error {
         completionHandler("could not connect to server", nil)

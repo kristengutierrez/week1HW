@@ -13,23 +13,34 @@ class ViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   var tweets = [Tweet]()
+  
+  
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    //self.navigationController?.navigationBarHidden = true
+    
     
     tableView.estimatedRowHeight = 70
     tableView.rowHeight = UITableViewAutomaticDimension
-    
     
     
     LoginService.loginForTwitter { (errorDescription, account) -> (Void) in
       if let errorDescription = errorDescription {
       }
       if let account = account {
-        TwitterService.tweetsFromHomeTimeline(account, completionHandler: { (errorDescription, tweets) -> (Void) in
+        TwitterService.sharedService.account = account
+        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+          self.activityIndicator.startAnimating()
+        })
+        TwitterService.tweetsFromHomeTimeline({ (errorDescription, tweets) -> (Void) in
           if let tweets = tweets {
             //Do on main queue because you might have multiple things trying to change the array
             NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
               self.tweets = tweets
+              self.activityIndicator.stopAnimating()
               self.tableView.reloadData()
             }
             
