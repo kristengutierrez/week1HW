@@ -16,6 +16,11 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    tableView.estimatedRowHeight = 70
+    tableView.rowHeight = UITableViewAutomaticDimension
+    
+    
+    
     LoginService.loginForTwitter { (errorDescription, account) -> (Void) in
       if let errorDescription = errorDescription {
       }
@@ -55,8 +60,10 @@ extension ViewController: UITableViewDataSource {
     return self.tweets.count
   }
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-    cell.textLabel?.text = tweets[indexPath.row].text
+    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TweetCell
+   // cell.textLabel?.text = tweets[indexPath.row].text
+    cell.usernameLabel.text = tweets[indexPath.row].username
+    cell.tweetLabel.text = tweets[indexPath.row].text
     return cell
   }
   
