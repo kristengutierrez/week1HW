@@ -11,7 +11,7 @@ import Foundation
 struct Tweet {
   let text : String
   let username : String
-  let id : Int
+  let id : String
   let profileImageURL : String
 }
 

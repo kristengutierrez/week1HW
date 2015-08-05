@@ -17,7 +17,7 @@ class TweetJSONParser {
       for tweetObject in rootObject {
 //        println(tweetObject)
         if let text = tweetObject["text"] as? String,
-          id = tweetObject["id"] as? Int,
+          id = tweetObject["id_str"] as? String,
           userInfo = tweetObject["user"] as? [String : AnyObject],
           username = userInfo["name"] as? String,
           profileImageURL = userInfo["profile_image_url"] as? String {

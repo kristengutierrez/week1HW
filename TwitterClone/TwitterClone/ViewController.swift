@@ -16,15 +16,31 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if let filepath = NSBundle.mainBundle().pathForResource("tweet", ofType: "json")
-    {
-      if let data = NSData(contentsOfFile: filepath) {
-        if let tweets = TweetJSONParser.tweetsFromJSONData(data) {
-          self.tweets = tweets
-          println(self.tweets)
-        }
+    LoginService.loginForTwitter { (errorDescription, account) -> (Void) in
+      if let errorDescription = errorDescription {
       }
-    }
+      if let account = account {
+        TwitterService.tweetsFromHomeTimeline(account, completionHandler: { (errorDescription, tweets) -> (Void) in
+          if let tweets = tweets {
+            //Do on main queue because you might have multiple things trying to change the array
+            NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+              self.tweets = tweets
+              self.tableView.reloadData()
+            }
+            
+          }
+        })
+      }
+  }
+//    if let filepath = NSBundle.mainBundle().pathForResource("tweet", ofType: "json")
+//    {
+//      if let data = NSData(contentsOfFile: filepath) {
+//        if let tweets = TweetJSONParser.tweetsFromJSONData(data) {
+//          self.tweets = tweets
+//          println(self.tweets)
+//        }
+//      }
+//    }
     // Do any additional setup after loading the view, typically from a nib.
   }
   
@@ -33,7 +49,7 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 }
-//MARK: - UITableViewDataSource
+//MARK: UITableViewDataSource
 extension ViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.tweets.count
