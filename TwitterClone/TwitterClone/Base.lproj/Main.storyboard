@@ -116,7 +116,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IndividualTweet" rowHeight="100" id="GBP-kL-BxR" customClass="DetailTweetCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IndividualTweet" rowHeight="100" id="GBP-kL-BxR" customClass="DetailTweetCell" customModule="TwitterClone" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GBP-kL-BxR" id="Ya8-q3-ixu">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -128,7 +128,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmn-AI-Qyw">
-                                                    <rect key="frame" x="8" y="28" width="592" height="72"/>
+                                                    <rect key="frame" x="8" y="27" width="584" height="72"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -137,14 +137,14 @@
                                             <constraints>
                                                 <constraint firstItem="jmn-AI-Qyw" firstAttribute="leading" secondItem="LUQ-sy-xjc" secondAttribute="leading" id="2IX-AZ-r26"/>
                                                 <constraint firstItem="LUQ-sy-xjc" firstAttribute="top" secondItem="Ya8-q3-ixu" secondAttribute="topMargin" id="ELY-CK-EBP"/>
-                                                <constraint firstAttribute="trailing" secondItem="jmn-AI-Qyw" secondAttribute="trailing" id="SFR-p6-RZV"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="jmn-AI-Qyw" secondAttribute="bottom" constant="-8.5" id="rc0-S4-Ko6"/>
-                                                <constraint firstItem="jmn-AI-Qyw" firstAttribute="top" secondItem="Ya8-q3-ixu" secondAttribute="topMargin" constant="20" id="tOS-Ty-O4s"/>
+                                                <constraint firstAttribute="trailing" secondItem="jmn-AI-Qyw" secondAttribute="trailing" constant="8" id="SFR-p6-RZV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="jmn-AI-Qyw" secondAttribute="bottom" constant="-7.5" id="rc0-S4-Ko6"/>
+                                                <constraint firstItem="jmn-AI-Qyw" firstAttribute="top" secondItem="Ya8-q3-ixu" secondAttribute="topMargin" constant="19" id="tOS-Ty-O4s"/>
                                                 <constraint firstItem="LUQ-sy-xjc" firstAttribute="leading" secondItem="Ya8-q3-ixu" secondAttribute="leadingMargin" id="tPl-NJ-FdW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="detailTweetLabel" destination="jmn-AI-Qyw" id="DBS-Pd-UME"/>
+                                            <outlet property="detailTweetLabel" destination="jmn-AI-Qyw" id="lJr-91-7jn"/>
                                             <outlet property="detailUsernameLabel" destination="LUQ-sy-xjc" id="djl-h4-cAo"/>
                                         </connections>
                                     </tableViewCell>

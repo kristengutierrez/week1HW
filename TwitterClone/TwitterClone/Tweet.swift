@@ -14,6 +14,6 @@ struct Tweet {
   let id : String
   let profileImageURL : String?
   let originalTweet : String?
-  let originalUser : String?
+  let originalUsername : String?
 }
 

@@ -10,15 +10,17 @@ import Foundation
 import UIKit
 
 class IndividualTweetViewController : UIViewController {
-  
+
 
   
   @IBOutlet weak var secondTableView: UITableView!
   
-  var toPass : String?
-  var tweets = [Tweet]()
+    var tweets = [Tweet]()
+  var originalUsername : String?
+  var originalTweet : String?
   override func viewDidLoad() {
     super.viewDidLoad()
+    println(tweets.count)
   }
   
   override func didReceiveMemoryWarning() {
@@ -28,14 +30,29 @@ class IndividualTweetViewController : UIViewController {
 }
 //MARK: UITableViewDataSource2
 extension IndividualTweetViewController: UITableViewDataSource {
-  func secondTableView(secondTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //return self.tweets.count
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.tweets.count
+    //return 1
   }
-  func secondTableView(secondTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = secondTableView.dequeueReusableCellWithIdentifier("IndividualTweet", forIndexPath: indexPath) as! DetailTweetCell
-    cell.detailUsernameLabel.text = tweets[indexPath.row].originalUser
-    cell.detailTweetLabel.text = tweets[indexPath.row].originalTweet
-    //cell.usernameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("IndividualTweet", forIndexPath: indexPath) as! DetailTweetCell
+//    cell.detailUsernameLabel.text = tweets[indexPath.row].originalUser
+//    cell.detailTweetLabel.text = tweets[indexPath.row].originalTweet
+    cell.detailUsernameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+    
+    
+    let tweet = tweets[indexPath.row]
+    
+    if let originalUsername = originalUsername {
+      cell.detailUsernameLabel.text = tweet.originalUsername
+    } else {
+      cell.detailUsernameLabel.text = tweet.username
+    }
+    if let originalTweet = originalTweet {
+      cell.detailTweetLabel.text = tweet.originalTweet
+    } else {
+      cell.detailTweetLabel.text = tweet.text
+    }
     
     return cell
   }
