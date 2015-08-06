@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 koz. All rights reserved.
 //
 
-import Foundation
+
+import UIKit
 
 
 class TweetJSONParser {
@@ -22,14 +23,21 @@ class TweetJSONParser {
           username = userInfo["name"] as? String,
           profileImageURL = userInfo["profile_image_url"] as? String {
             
-            let tweet = Tweet(text: text, username: username, id: id, profileImageURL: profileImageURL, originalTweet: nil, originalUsername: nil)
+            var tweet = Tweet(text: text, username: username, id: id, profileImageURL: profileImageURL, originalTweet: nil, originalUsername: nil, profileImage: nil)
+            
+            if let imageURL = NSURL(string: profileImageURL),
+            imageData = NSData(contentsOfURL: imageURL),
+            image = UIImage(data: imageData) {
+              tweet.profileImage = image
+            }
+            
             
             if let retweet = tweetObject["retweeted_status"] as? [String : AnyObject],
               originalTweet = retweet["text"] as? String,
               originalUserInfo = retweet["user"] as? [String : AnyObject],
               originalUsername = originalUserInfo["name"] as? String {
                 
-                let tweet = Tweet(text: text, username: username, id: id, profileImageURL: profileImageURL, originalTweet: originalTweet, originalUsername: originalUsername)
+                let tweet = Tweet(text: text, username: username, id: id, profileImageURL: profileImageURL, originalTweet: originalTweet, originalUsername: originalUsername, profileImage: nil)
                  tweets.append(tweet)
                 
             } else {

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1744962D1B73C0A200745E38 /* IndividualTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1744962C1B73C0A200745E38 /* IndividualTweetViewController.swift */; };
 		1744962F1B73D37500745E38 /* DetailTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1744962E1B73D37500745E38 /* DetailTweetCell.swift */; };
+		174496311B740A2800745E38 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174496301B740A2800745E38 /* TweetCell.xib */; };
+		174496331B74147200745E38 /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174496321B74147200745E38 /* ImageResizer.swift */; };
 		17F177371B71187F00BF75E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F177361B71187F00BF75E4 /* AppDelegate.swift */; };
 		17F1773A1B71187F00BF75E4 /* TwitterClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F177381B71187F00BF75E4 /* TwitterClone.xcdatamodeld */; };
 		17F1773C1B71187F00BF75E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1773B1B71187F00BF75E4 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		1744962C1B73C0A200745E38 /* IndividualTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualTweetViewController.swift; sourceTree = "<group>"; };
 		1744962E1B73D37500745E38 /* DetailTweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTweetCell.swift; sourceTree = "<group>"; };
+		174496301B740A2800745E38 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
+		174496321B74147200745E38 /* ImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
 		17F177311B71187F00BF75E4 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F177351B71187F00BF75E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F177361B71187F00BF75E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				17F177641B7168B200BF75E4 /* TwitterService.swift */,
 				17F177621B7160C700BF75E4 /* LoginService.swift */,
 				17F1775C1B71198400BF75E4 /* Tweet.swift */,
+				174496321B74147200745E38 /* ImageResizer.swift */,
 				17F1775E1B7119F000BF75E4 /* TweetJSONParser.swift */,
 			);
 			name = Model;
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				17F1773B1B71187F00BF75E4 /* ViewController.swift */,
+				174496301B740A2800745E38 /* TweetCell.xib */,
 				1744962C1B73C0A200745E38 /* IndividualTweetViewController.swift */,
 			);
 			name = Controller;
@@ -247,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17F1773F1B71187F00BF75E4 /* Main.storyboard in Resources */,
+				174496311B740A2800745E38 /* TweetCell.xib in Resources */,
 				17F177441B71187F00BF75E4 /* LaunchScreen.xib in Resources */,
 				17F177411B71187F00BF75E4 /* Images.xcassets in Resources */,
 				17F177611B7122BF00BF75E4 /* tweet.json in Resources */,
@@ -276,6 +283,7 @@
 				1744962F1B73D37500745E38 /* DetailTweetCell.swift in Sources */,
 				17F1773A1B71187F00BF75E4 /* TwitterClone.xcdatamodeld in Sources */,
 				1744962D1B73C0A200745E38 /* IndividualTweetViewController.swift in Sources */,
+				174496331B74147200745E38 /* ImageResizer.swift in Sources */,
 				17F1775D1B71198400BF75E4 /* Tweet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

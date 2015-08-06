@@ -16,8 +16,7 @@ class IndividualTweetViewController : UIViewController {
   @IBOutlet weak var secondTableView: UITableView!
   
     var tweets = [Tweet]()
-  var originalUsername : String?
-  var originalTweet : String?
+
   override func viewDidLoad() {
     super.viewDidLoad()
     println(tweets.count)
@@ -42,17 +41,19 @@ extension IndividualTweetViewController: UITableViewDataSource {
     
     
     let tweet = tweets[indexPath.row]
+    cell.detailUsernameLabel.text = tweet.originalUsername
+    cell.detailTweetLabel.text = tweet.originalTweet
     
-    if let originalUsername = originalUsername {
-      cell.detailUsernameLabel.text = tweet.originalUsername
-    } else {
-      cell.detailUsernameLabel.text = tweet.username
-    }
-    if let originalTweet = originalTweet {
-      cell.detailTweetLabel.text = tweet.originalTweet
-    } else {
-      cell.detailTweetLabel.text = tweet.text
-    }
+//    if let originalUsername {
+//      cell.detailUsernameLabel.text = tweet.originalUsername
+//    } else {
+//      cell.detailUsernameLabel.text = tweet.username
+//    }
+//    if let originalTweet {
+//      cell.detailTweetLabel.text = tweet.originalTweet
+//    } else {
+//      cell.detailTweetLabel.text = tweet.text
+//    }
     
     return cell
   }

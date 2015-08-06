@@ -11,9 +11,10 @@ import UIKit
 class ViewController : UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
+
   
   var tweets = [Tweet]()
-  
+  let imageQueue = NSOperationQueue()
   
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
@@ -25,6 +26,9 @@ class ViewController : UIViewController {
     tableView.estimatedRowHeight = 70
     tableView.rowHeight = UITableViewAutomaticDimension
     
+    
+    
+    tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TweetCell")
     
     LoginService.loginForTwitter { (errorDescription, account) -> (Void) in
       if let errorDescription = errorDescription {
@@ -78,11 +82,48 @@ extension ViewController: UITableViewDataSource {
   }
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TweetCell
+    
+    cell.tag++
+    let tag = cell.tag
    // cell.textLabel?.text = tweets[indexPath.row].text
     cell.usernameLabel.text = tweets[indexPath.row].username
     cell.tweetLabel.text = tweets[indexPath.row].text
     cell.usernameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
     
+    var tweet = tweets[indexPath.row]
+    if let profileImage = tweet.profileImage {
+      cell.profileImageView.image = profileImage
+    } else {
+      imageQueue.addOperationWithBlock({ () -> Void in
+        
+        if let imageURL = NSURL(string: tweet.profileImageURL!),
+          imageData = NSData(contentsOfURL: imageURL),
+          image = UIImage(data: imageData) {
+            var size: CGSize
+            switch UIScreen.mainScreen().scale {
+            case 1:
+              size = CGSize(width: 160, height: 160)
+            case 2:
+              size = CGSize(width: 240, height: 240)
+            default:
+              size =  CGSize(width: 80, height: 80)
+            }
+            let resizedImage = ImageResizer.resizeImage(image, size: size)
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+              tweet.profileImage = image
+              self.tweets[indexPath.row] = tweet
+              if cell.tag == tag {
+              cell.profileImageView.image = image
+              }
+            })
+
+        }
+        
+      })
+  }
+
+  
     return cell
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
