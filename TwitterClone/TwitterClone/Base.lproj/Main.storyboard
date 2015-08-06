@@ -33,8 +33,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2jq-wa-MhZ">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2jq-wa-MhZ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="Qka-lm-lde" customClass="TweetCell" customModule="TwitterClone" customModuleProvider="target">
@@ -50,7 +50,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scg-tY-cI9">
                                                     <rect key="frame" x="8" y="30" width="592" height="61.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -67,6 +67,7 @@
                                         <connections>
                                             <outlet property="tweetLabel" destination="Scg-tY-cI9" id="8aQ-al-Dhg"/>
                                             <outlet property="usernameLabel" destination="lD9-AD-aaO" id="KMP-pu-zyW"/>
+                                            <segue destination="k2i-pk-pbn" kind="show" identifier="cellSegue" id="EIL-ZU-rng"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -75,7 +76,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hrn-hB-6wB">
-                                <rect key="frame" x="281.5" y="281.5" width="37" height="37"/>
+                                <rect key="frame" x="281" y="281" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -97,11 +98,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="365" y="244"/>
         </scene>
-        <!--View Controller-->
+        <!--Individual Tweet View Controller-->
         <scene sceneID="qks-yf-bGR">
             <objects>
-                <viewController id="k2i-pk-pbn" sceneMemberID="viewController">
+                <viewController id="k2i-pk-pbn" customClass="IndividualTweetViewController" customModule="TwitterClone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BC2-eO-pJV"/>
                         <viewControllerLayoutGuide type="bottom" id="VHS-4k-I18"/>
@@ -109,12 +111,58 @@
                     <view key="view" contentMode="scaleToFill" id="XSq-fX-Uss">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vuw-cf-wrM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IndividualTweet" rowHeight="100" id="GBP-kL-BxR" customClass="DetailTweetCell">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GBP-kL-BxR" id="Ya8-q3-ixu">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUQ-sy-xjc">
+                                                    <rect key="frame" x="8" y="8" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmn-AI-Qyw">
+                                                    <rect key="frame" x="8" y="28" width="592" height="72"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jmn-AI-Qyw" firstAttribute="leading" secondItem="LUQ-sy-xjc" secondAttribute="leading" id="2IX-AZ-r26"/>
+                                                <constraint firstItem="LUQ-sy-xjc" firstAttribute="top" secondItem="Ya8-q3-ixu" secondAttribute="topMargin" id="ELY-CK-EBP"/>
+                                                <constraint firstAttribute="trailing" secondItem="jmn-AI-Qyw" secondAttribute="trailing" id="SFR-p6-RZV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="jmn-AI-Qyw" secondAttribute="bottom" constant="-8.5" id="rc0-S4-Ko6"/>
+                                                <constraint firstItem="jmn-AI-Qyw" firstAttribute="top" secondItem="Ya8-q3-ixu" secondAttribute="topMargin" constant="20" id="tOS-Ty-O4s"/>
+                                                <constraint firstItem="LUQ-sy-xjc" firstAttribute="leading" secondItem="Ya8-q3-ixu" secondAttribute="leadingMargin" id="tPl-NJ-FdW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detailTweetLabel" destination="jmn-AI-Qyw" id="DBS-Pd-UME"/>
+                                            <outlet property="detailUsernameLabel" destination="LUQ-sy-xjc" id="djl-h4-cAo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="k2i-pk-pbn" id="YQe-Ty-WFT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="secondTableView" destination="vuw-cf-wrM" id="PQM-Ue-gsz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ii0-hr-KSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="251"/>
+            <point key="canvasLocation" x="1066" y="244"/>
         </scene>
     </scenes>
 </document>

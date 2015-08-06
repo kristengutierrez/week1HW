@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1744962D1B73C0A200745E38 /* IndividualTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1744962C1B73C0A200745E38 /* IndividualTweetViewController.swift */; };
+		1744962F1B73D37500745E38 /* DetailTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1744962E1B73D37500745E38 /* DetailTweetCell.swift */; };
 		17F177371B71187F00BF75E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F177361B71187F00BF75E4 /* AppDelegate.swift */; };
 		17F1773A1B71187F00BF75E4 /* TwitterClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F177381B71187F00BF75E4 /* TwitterClone.xcdatamodeld */; };
 		17F1773C1B71187F00BF75E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1773B1B71187F00BF75E4 /* ViewController.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1744962C1B73C0A200745E38 /* IndividualTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualTweetViewController.swift; sourceTree = "<group>"; };
+		1744962E1B73D37500745E38 /* DetailTweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTweetCell.swift; sourceTree = "<group>"; };
 		17F177311B71187F00BF75E4 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F177351B71187F00BF75E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17F177361B71187F00BF75E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 			children = (
 				17F1773D1B71187F00BF75E4 /* Main.storyboard */,
 				17F177661B72AAE600BF75E4 /* TweetCell.swift */,
+				1744962E1B73D37500745E38 /* DetailTweetCell.swift */,
 			);
 			name = View;
 			path = TwitterClone;
@@ -155,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				17F1773B1B71187F00BF75E4 /* ViewController.swift */,
+				1744962C1B73C0A200745E38 /* IndividualTweetViewController.swift */,
 			);
 			name = Controller;
 			path = TwitterClone;
@@ -267,7 +273,9 @@
 				17F177671B72AAE600BF75E4 /* TweetCell.swift in Sources */,
 				17F177371B71187F00BF75E4 /* AppDelegate.swift in Sources */,
 				17F1775F1B7119F000BF75E4 /* TweetJSONParser.swift in Sources */,
+				1744962F1B73D37500745E38 /* DetailTweetCell.swift in Sources */,
 				17F1773A1B71187F00BF75E4 /* TwitterClone.xcdatamodeld in Sources */,
+				1744962D1B73C0A200745E38 /* IndividualTweetViewController.swift in Sources */,
 				17F1775D1B71198400BF75E4 /* Tweet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

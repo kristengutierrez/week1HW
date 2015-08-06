@@ -7,7 +7,7 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>82D36A57-EC51-429D-8010-36B8CEB485E3</string>
 	<key>IDESourceControlProjectName</key>
-	<string>TwitterClone</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D245603DCD83EA8BF8FCC07284E9D0B7E9315A47</key>
@@ -16,7 +16,7 @@
 		<string>https://github.com/kristenkozmary/week1HW.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TwitterClone.xcodeproj</string>
+	<string>TwitterClone.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D245603DCD83EA8BF8FCC07284E9D0B7E9315A47</key>

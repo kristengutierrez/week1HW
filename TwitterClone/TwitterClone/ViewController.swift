@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController : UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -21,8 +21,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
 
     //self.navigationController?.navigationBarHidden = true
-    
-    
+
     tableView.estimatedRowHeight = 70
     tableView.rowHeight = UITableViewAutomaticDimension
     
@@ -58,12 +57,19 @@ class ViewController: UIViewController {
 //      }
 //    }
     // Do any additional setup after loading the view, typically from a nib.
-  }
+    
+    
   
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateLabels", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+  }
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
+  }
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
-  }
+      }
 }
 //MARK: UITableViewDataSource
 extension ViewController: UITableViewDataSource {
@@ -75,7 +81,19 @@ extension ViewController: UITableViewDataSource {
    // cell.textLabel?.text = tweets[indexPath.row].text
     cell.usernameLabel.text = tweets[indexPath.row].username
     cell.tweetLabel.text = tweets[indexPath.row].text
+    cell.usernameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+    
     return cell
   }
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "cellSegue" {
+      var svc = segue.destinationViewController as! IndividualTweetViewController;
+      var selectedIndexPath = self.tableView.indexPathForSelectedRow()
+      var selectedRow = self.tweets[selectedIndexPath!.row]
+      svc.toPass = selectedRow
+    }
+  }
   
-}
+  
+  }
+
