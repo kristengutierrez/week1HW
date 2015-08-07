@@ -5,31 +5,20 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailTweetCell" customModule="TwitterClone" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="TSI-YS-Z6b" customClass="TweetCell" customModule="TwitterClone" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="1" width="320" height="70"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TSI-YS-Z6b" id="31c-LD-nTp">
-                <autoresizingMask key="autoresizingMask"/>
-            </tableViewCellContentView>
-            <point key="canvasLocation" x="385" y="208"/>
-        </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IndividualTweet" rowHeight="125" id="Jq5-1l-e9n" customClass="TweetCell" customModule="TwitterClone" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IndividualTweet" rowHeight="125" id="Jq5-1l-e9n" customClass="DetailTweetCell" customModule="TwitterClone" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jq5-1l-e9n" id="Obv-T4-JPg">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwn-MY-qwy">
-                        <rect key="frame" x="8" y="66" width="592" height="58"/>
+                        <rect key="frame" x="8" y="71" width="592" height="53"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXk-SE-gfd">
-                        <rect key="frame" x="8" y="8" width="55" height="55"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJV-MA-X16">
                         <rect key="frame" x="70" y="31" width="42" height="21"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -42,6 +31,12 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVl-IC-FqX">
+                        <rect key="frame" x="8" y="8" width="46" height="46.5"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="6ng-rf-7lh" firstAttribute="top" secondItem="Obv-T4-JPg" secondAttribute="topMargin" id="6L9-tJ-25T"/>
@@ -49,12 +44,14 @@
                     <constraint firstAttribute="trailing" secondItem="qwn-MY-qwy" secondAttribute="trailing" id="Wb9-yu-Cdq"/>
                     <constraint firstItem="qwn-MY-qwy" firstAttribute="leading" secondItem="6ng-rf-7lh" secondAttribute="leading" constant="-63" id="aZK-9f-Tar"/>
                     <constraint firstItem="6ng-rf-7lh" firstAttribute="leading" secondItem="Obv-T4-JPg" secondAttribute="leadingMargin" constant="63" id="c8f-61-Khj"/>
-                    <constraint firstItem="qwn-MY-qwy" firstAttribute="top" secondItem="Obv-T4-JPg" secondAttribute="topMargin" constant="58" id="tJU-6G-KAs"/>
+                    <constraint firstItem="qwn-MY-qwy" firstAttribute="top" secondItem="Obv-T4-JPg" secondAttribute="topMargin" constant="63" id="tJU-6G-KAs"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="detailTweetLabel" destination="qwn-MY-qwy" id="cho-qt-fnZ"/>
-                <outlet property="detailUsernameLabel" destination="6ng-rf-7lh" id="LCH-pe-8nq"/>
+                <outlet property="detailImageButton" destination="gVl-IC-FqX" id="Cy2-dv-KeP"/>
+                <outlet property="detailTweet" destination="qwn-MY-qwy" id="Om1-EL-kCN"/>
+                <outlet property="detailUserHandle" destination="LJV-MA-X16" id="jkn-lM-i6I"/>
+                <outlet property="detailUsername" destination="6ng-rf-7lh" id="S1v-Ga-sRf"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -11,8 +11,10 @@ import UIKit
 
 class DetailTweetCell: UITableViewCell {
   
-  @IBOutlet weak var detailUsernameLabel: UILabel!
-  
-  @IBOutlet weak var detailTweetLabel: UILabel!
+  @IBOutlet weak var detailImageButton: UIButton!
+
+  @IBOutlet weak var detailTweet: UILabel!
+  @IBOutlet weak var detailUserHandle: UILabel!
+  @IBOutlet weak var detailUsername: UILabel!
 
 }

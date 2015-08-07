@@ -26,9 +26,8 @@ class ViewController : UIViewController {
     tableView.estimatedRowHeight = 70
     tableView.rowHeight = UITableViewAutomaticDimension
     
-    
-    
-    tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TweetCell")
+    tableView.dataSource = self
+    tableView.delegate = self
     
     LoginService.loginForTwitter { (errorDescription, account) -> (Void) in
       if let errorDescription = errorDescription {
@@ -51,16 +50,6 @@ class ViewController : UIViewController {
         })
       }
   }
-//    if let filepath = NSBundle.mainBundle().pathForResource("tweet", ofType: "json")
-//    {
-//      if let data = NSData(contentsOfFile: filepath) {
-//        if let tweets = TweetJSONParser.tweetsFromJSONData(data) {
-//          self.tweets = tweets
-//          println(self.tweets)
-//        }
-//      }
-//    }
-    // Do any additional setup after loading the view, typically from a nib.
     
     
   
@@ -85,7 +74,6 @@ extension ViewController: UITableViewDataSource {
     
     cell.tag++
     let tag = cell.tag
-   // cell.textLabel?.text = tweets[indexPath.row].text
     cell.usernameLabel.text = tweets[indexPath.row].username
     cell.tweetLabel.text = tweets[indexPath.row].text
     cell.usernameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
@@ -139,4 +127,18 @@ extension ViewController: UITableViewDataSource {
   
   
   }
+
+//MARK: UITableViewDelegate
+extension ViewController : UITableViewDelegate {
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    self.performSegueWithIdentifier("cellSegue", sender: self)
+  }
+}
+
+
+
+
+
+
 
