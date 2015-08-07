@@ -41,19 +41,25 @@ extension IndividualTweetViewController: UITableViewDataSource {
     
     
     let tweet = tweets[indexPath.row]
-    cell.detailUsernameLabel.text = tweet.originalUsername
-    cell.detailTweetLabel.text = tweet.originalTweet
+//    cell.detailUsernameLabel.text = tweet.originalUsername
+//    cell.detailTweetLabel.text = tweet.originalTweet
     
-//    if let originalUsername {
-//      cell.detailUsernameLabel.text = tweet.originalUsername
-//    } else {
-//      cell.detailUsernameLabel.text = tweet.username
-//    }
-//    if let originalTweet {
-//      cell.detailTweetLabel.text = tweet.originalTweet
-//    } else {
-//      cell.detailTweetLabel.text = tweet.text
-//    }
+    if let originalUsername = tweet.originalUsername {
+      cell.detailUsernameLabel.text = tweet.originalUsername
+    } else if let originalQuotedUsername = tweet.originalQuotedUsername {
+      cell.detailUsernameLabel.text = tweet.originalQuotedUsername
+    } else {
+      cell.detailUsernameLabel.text = tweet.username
+    }
+    
+    
+    if let originalTweet = tweet.originalTweet {
+      cell.detailTweetLabel.text = tweet.originalTweet
+    } else if let originalQuotedTweet = tweet.originalQuotedTweet {
+      cell.detailTweetLabel.text = tweet.originalQuotedTweet
+    } else {
+      cell.detailTweetLabel.text = tweet.text
+    }
     
     return cell
   }

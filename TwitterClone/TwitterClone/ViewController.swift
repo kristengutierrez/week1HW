@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController : UIViewController {
-  
+    
   @IBOutlet weak var tableView: UITableView!
 
   
@@ -92,7 +92,7 @@ extension ViewController: UITableViewDataSource {
     
     var tweet = tweets[indexPath.row]
     if let profileImage = tweet.profileImage {
-      cell.profileImageView.image = profileImage
+      cell.profileImageView.setBackgroundImage(profileImage, forState: UIControlState.Normal)
     } else {
       imageQueue.addOperationWithBlock({ () -> Void in
         
@@ -114,7 +114,7 @@ extension ViewController: UITableViewDataSource {
               tweet.profileImage = image
               self.tweets[indexPath.row] = tweet
               if cell.tag == tag {
-              cell.profileImageView.image = image
+              cell.profileImageView.setBackgroundImage(image, forState: UIControlState.Normal)
               }
             })
 

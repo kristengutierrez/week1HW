@@ -21,15 +21,24 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jq5-1l-e9n" id="Obv-T4-JPg">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-rf-7lh">
-                        <rect key="frame" x="8" y="8" width="41" height="19.5"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwn-MY-qwy">
+                        <rect key="frame" x="8" y="66" width="592" height="58"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwn-MY-qwy">
-                        <rect key="frame" x="8" y="27" width="584" height="97"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bXk-SE-gfd">
+                        <rect key="frame" x="8" y="8" width="55" height="55"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJV-MA-X16">
+                        <rect key="frame" x="70" y="31" width="42" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <color key="textColor" red="0.26672979797979801" green="0.26672979797979801" blue="0.26672979797979801" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-rf-7lh">
+                        <rect key="frame" x="71" y="8" width="41" height="19.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -37,10 +46,10 @@
                 <constraints>
                     <constraint firstItem="6ng-rf-7lh" firstAttribute="top" secondItem="Obv-T4-JPg" secondAttribute="topMargin" id="6L9-tJ-25T"/>
                     <constraint firstAttribute="bottomMargin" secondItem="qwn-MY-qwy" secondAttribute="bottom" constant="-7.5" id="8my-Xv-LSH"/>
-                    <constraint firstAttribute="trailing" secondItem="qwn-MY-qwy" secondAttribute="trailing" constant="8" id="Wb9-yu-Cdq"/>
-                    <constraint firstItem="qwn-MY-qwy" firstAttribute="leading" secondItem="6ng-rf-7lh" secondAttribute="leading" id="aZK-9f-Tar"/>
-                    <constraint firstItem="6ng-rf-7lh" firstAttribute="leading" secondItem="Obv-T4-JPg" secondAttribute="leadingMargin" id="c8f-61-Khj"/>
-                    <constraint firstItem="qwn-MY-qwy" firstAttribute="top" secondItem="Obv-T4-JPg" secondAttribute="topMargin" constant="19" id="tJU-6G-KAs"/>
+                    <constraint firstAttribute="trailing" secondItem="qwn-MY-qwy" secondAttribute="trailing" id="Wb9-yu-Cdq"/>
+                    <constraint firstItem="qwn-MY-qwy" firstAttribute="leading" secondItem="6ng-rf-7lh" secondAttribute="leading" constant="-63" id="aZK-9f-Tar"/>
+                    <constraint firstItem="6ng-rf-7lh" firstAttribute="leading" secondItem="Obv-T4-JPg" secondAttribute="leadingMargin" constant="63" id="c8f-61-Khj"/>
+                    <constraint firstItem="qwn-MY-qwy" firstAttribute="top" secondItem="Obv-T4-JPg" secondAttribute="topMargin" constant="58" id="tJU-6G-KAs"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
