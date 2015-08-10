@@ -20,7 +20,5 @@ class DetailTweetCell: UITableViewCell {
   @IBAction func profilePicturePressed(sender: AnyObject) {
     
     
-    
-    
   }
 }

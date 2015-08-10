@@ -20,5 +20,6 @@ struct Tweet {
   let backgroundImageURL : String?
   var backgroundImage : UIImage?
   let location : String?
+  let screenname : String?
 }
 

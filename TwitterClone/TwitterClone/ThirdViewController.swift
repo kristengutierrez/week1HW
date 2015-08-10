@@ -23,11 +23,12 @@ class ThirdViewController : UIViewController {
   
 
   
-  func button (NSObject){
-    self.performSegueWithIdentifier("secondSegue", sender: self)
-  }
+//  func button (NSObject){
+//    self.performSegueWithIdentifier("secondSegue", sender: self)
+//  }
   
-  var tweets = [Tweet]()
+    var tweets = [Tweet]()
+  
   let imageQueue = NSOperationQueue()
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,13 +40,20 @@ class ThirdViewController : UIViewController {
     if let thirdView = NSBundle.mainBundle().loadNibNamed("TweetCell", owner: self, options: nil).first as? TweetCell {
       view.addSubview(thirdView)
     }
-    
-    
-    
-    
-    
+//    var tweet = tweets[indexPath.row]
+//    var userID = tweet.screenname
+//    
+//    TwitterService.tweetsFromUserTimeline(userID) ({ (errorDescription, tweets) -> (Void) in
+//      if let tweets = tweets {
+//        //Do on main queue because you might have multiple things trying to change the array
+//        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+//          self.tweets = tweets
+//          self.tableView.reloadData()
+//        }
+//        
+//      }
+//      })
   }
-  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -56,6 +64,10 @@ extension ThirdViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.tweets.count
   }
+
+
+  
+  
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("TimelineTweetCell", forIndexPath: indexPath) as! TweetCell

@@ -19,11 +19,10 @@ class IndividualTweetViewController : UIViewController {
   let imageQueue = NSOperationQueue()
   override func viewDidLoad() {
     super.viewDidLoad()
-//    println(tweets.count)
     secondTableView.estimatedRowHeight = 70
     secondTableView.rowHeight = UITableViewAutomaticDimension
     secondTableView.dataSource = self
-    secondTableView.delegate = self
+//    secondTableView.delegate = self
     secondTableView.registerNib(UINib(nibName: "DetailTweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "IndividualTweet")
   }
   
@@ -36,7 +35,6 @@ class IndividualTweetViewController : UIViewController {
 extension IndividualTweetViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.tweets.count
-    //return 1
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

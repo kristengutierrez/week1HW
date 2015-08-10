@@ -155,7 +155,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="backgroundHeaderImage" destination="iMZ-lW-Cu3" id="yYb-u4-Hry"/>
                         <outlet property="backgroundImage" destination="5VU-k0-6v0" id="f5h-3K-RX1"/>
                         <outlet property="thirdTableView" destination="vYm-4u-oPY" id="6nw-vj-M2n"/>
                         <outlet property="userLocation" destination="Eww-wo-pf8" id="dDy-1O-ZSq"/>
