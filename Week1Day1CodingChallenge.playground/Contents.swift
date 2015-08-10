@@ -4,6 +4,8 @@ import UIKit
 
 var str = "Hello, playground"
 
+//MONDAY//
+
 var arr = [1,2,3,4,5]
 
 var reversedarr = [AnyObject]()
@@ -12,6 +14,8 @@ for num in arr {
   reversedarr.insert(num, atIndex: 0)
 }
 println(reversedarr)
+
+//TUESDAY//
 
 var numbers = [Int]()
 numbers += 1...100
@@ -28,14 +32,20 @@ for number in numbers {
     println(number)
     }
 }
+
+//WEDNESDAY//
+
 var myString = "hi one hi two hi hi three hi four five hi"
 
 var newArray = myString.componentsSeparatedByString("hi")
 var numberss = (newArray.count - 1)
 println(numberss)
 
-//var search = "hi"
-//var length = myString.count
+
+//THURSDAY//
+
+// var newString = myString.componentsSeparatedByCharactersInSet(separator: NSCharacterSet.self)
+var yeah = myString.stringByReplacingOccurrencesOfString("i", withString: "", options: nil, range: nil)
 
 
 //http://waynewbishop.com/swift/stacks-queues/ learning how to implement queues
