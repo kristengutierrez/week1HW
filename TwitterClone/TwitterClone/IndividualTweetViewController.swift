@@ -14,7 +14,7 @@ class IndividualTweetViewController : UIViewController {
 
   
   @IBOutlet weak var secondTableView: UITableView!
-  
+
     var tweets = [Tweet]()
   let imageQueue = NSOperationQueue()
   override func viewDidLoad() {
@@ -22,7 +22,8 @@ class IndividualTweetViewController : UIViewController {
 //    println(tweets.count)
     secondTableView.estimatedRowHeight = 70
     secondTableView.rowHeight = UITableViewAutomaticDimension
-
+    secondTableView.dataSource = self
+    secondTableView.delegate = self
     secondTableView.registerNib(UINib(nibName: "DetailTweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "IndividualTweet")
   }
   
@@ -93,8 +94,9 @@ extension IndividualTweetViewController: UITableViewDataSource {
       cell.detailTweet.text = tweet.originalQuotedTweet
     } else {
       cell.detailTweet.text = tweet.text
-      println(tweet.text)
     }
+    
+
     
     return cell
   }
@@ -104,7 +106,6 @@ extension IndividualTweetViewController: UITableViewDataSource {
       var itvc = segue.destinationViewController as! ThirdViewController;
       var selectedIndexPath = self.secondTableView.indexPathForSelectedRow()
       var selectedRow: Tweet = self.tweets[selectedIndexPath!.row]
-      //println(selectedRow.originalTweet)
       itvc.tweets.append(selectedRow)
       
     }
@@ -117,6 +118,6 @@ extension IndividualTweetViewController: UITableViewDataSource {
 extension IndividualTweetViewController : UITableViewDelegate {
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        self.performSegueWithIdentifier("cellSegue", sender: self)
+       self.performSegueWithIdentifier("secondSegue", sender: self)
   }
 }

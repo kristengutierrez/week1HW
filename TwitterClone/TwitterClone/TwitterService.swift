@@ -18,7 +18,6 @@ class TwitterService {
   private init() {}
   class func tweetsFromHomeTimeline(completionHandler : (String?, [Tweet]?) -> (Void)) {
     let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: NSURL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, parameters: nil)
-    //above is where i put how many tweets i want and that min max older newer thing
     request.account = self.sharedService.account
     request.performRequestWithHandler { (data, response, error) -> Void in
       if let error = error {
@@ -29,6 +28,29 @@ class TwitterService {
         case 200...299:
           let tweets = TweetJSONParser.tweetsFromJSONData(data)
           completionHandler(nil,tweets)
+        case 400...499:
+          completionHandler("Our fault", nil)
+        case 500...599:
+          completionHandler("Server's fault", nil)
+        default:
+          completionHandler("Something went wrong", nil)
+        }
+      }
+    }
+  }
+  
+  class func tweetsFromUserTimeline(completionHandler : (String?, [Tweet]?) -> (Void)) {
+    let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: NSURL(string: "https://api.twitter.com/1.1/statuses/user_timeline.json?count=20")!, parameters: nil)
+    request.account = self.sharedService.account
+    request.performRequestWithHandler { (data, response, error) -> Void in
+      if let error = error {
+        completionHandler("could not connect to server", nil)
+      } else {
+        println(response.statusCode)
+        switch response.statusCode {
+        case 200...299:
+          let tweets = TweetJSONParser.tweetsFromJSONData(data)
+          completionHandler(nil, tweets)
         case 400...499:
           completionHandler("Our fault", nil)
         case 500...599:

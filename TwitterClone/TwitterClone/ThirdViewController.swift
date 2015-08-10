@@ -13,11 +13,15 @@ class ThirdViewController : UIViewController {
   
   @IBOutlet weak var thirdTableView: UITableView!
   
+  func button (NSObject){
+    self.performSegueWithIdentifier("secondSegue", sender: self)
+  }
+  
   var tweets = [Tweet]()
   let imageQueue = NSOperationQueue()
   override func viewDidLoad() {
     super.viewDidLoad()
-    println(tweets.count)
+
     thirdTableView.estimatedRowHeight = 70
     thirdTableView.rowHeight = UITableViewAutomaticDimension
     
@@ -73,6 +77,28 @@ extension ThirdViewController: UITableViewDataSource {
         
       })
     }
+    
+    if let originalUsername = tweet.originalUsername {
+      cell.usernameLabel.text = tweet.originalUsername
+    } else if let originalQuotedUsername = tweet.originalQuotedUsername {
+      cell.usernameLabel.text = tweet.originalQuotedUsername
+    } else {
+      cell.usernameLabel.text = tweet.username
+    }
+    
+    
+    if let originalTweet = tweet.originalTweet {
+      cell.tweetLabel.text = tweet.originalTweet
+    } else if let originalQuotedTweet = tweet.originalQuotedTweet {
+      cell.tweetLabel.text = tweet.originalQuotedTweet
+    } else {
+      cell.tweetLabel.text = tweet.text
+      println(tweet.text)
+    }
+    
+
+    
+    
     
     return cell
   }

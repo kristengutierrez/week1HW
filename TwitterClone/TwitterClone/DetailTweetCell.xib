@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -14,15 +15,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwn-MY-qwy">
-                        <rect key="frame" x="8" y="71" width="592" height="74"/>
+                        <rect key="frame" x="8" y="71.5" width="592" height="73.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJV-MA-X16">
-                        <rect key="frame" x="70" y="31" width="42" height="21"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                        <color key="textColor" red="0.26672979797979801" green="0.26672979797979801" blue="0.26672979797979801" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ng-rf-7lh">
@@ -32,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVl-IC-FqX">
-                        <rect key="frame" x="8" y="8" width="46" height="46.5"/>
+                        <rect key="frame" x="8" y="8" width="46" height="47"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="46" id="4cO-Iz-5js"/>
                             <constraint firstAttribute="height" constant="46.5" id="Yqk-jI-0xF"/>
@@ -44,25 +39,81 @@
                             <action selector="profilePicturePressed:" destination="Jq5-1l-e9n" eventType="touchUpInside" id="0Zo-6k-adh"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CsP-sa-TbT">
+                        <rect key="frame" x="71" y="153" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="YR3-Kq-see"/>
+                            <constraint firstAttribute="width" constant="20" id="oeN-z5-fvp"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="arrow">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jte-t7-tUJ">
+                        <rect key="frame" x="180" y="153" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="ZPX-GB-2qH"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="retweet">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSY-TL-0Gr">
+                        <rect key="frame" x="290" y="153" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="PqQ-Mz-5lr"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="star">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="WSY-TL-0Gr" firstAttribute="firstBaseline" secondItem="CsP-sa-TbT" secondAttribute="firstBaseline" id="3ZR-ti-1cl"/>
                     <constraint firstItem="6ng-rf-7lh" firstAttribute="top" secondItem="Obv-T4-JPg" secondAttribute="topMargin" id="6L9-tJ-25T"/>
                     <constraint firstAttribute="bottomMargin" secondItem="qwn-MY-qwy" secondAttribute="bottom" constant="34.5" id="8my-Xv-LSH"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="baseline" secondItem="jte-t7-tUJ" secondAttribute="baseline" id="Csu-tS-jAI"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="bottom" secondItem="jte-t7-tUJ" secondAttribute="bottom" id="D3F-oz-qSc"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="top" secondItem="jte-t7-tUJ" secondAttribute="top" id="F9C-sQ-thp"/>
+                    <constraint firstItem="WSY-TL-0Gr" firstAttribute="firstBaseline" secondItem="jte-t7-tUJ" secondAttribute="firstBaseline" id="IbZ-vH-yVs"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="firstBaseline" secondItem="WSY-TL-0Gr" secondAttribute="firstBaseline" id="Ju0-Dx-Gpt"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="baseline" secondItem="qwn-MY-qwy" secondAttribute="baseline" constant="9" id="M5o-J9-Fq3"/>
                     <constraint firstAttribute="trailing" secondItem="qwn-MY-qwy" secondAttribute="trailing" id="Wb9-yu-Cdq"/>
+                    <constraint firstItem="WSY-TL-0Gr" firstAttribute="leading" secondItem="jte-t7-tUJ" secondAttribute="trailing" constant="90" id="bdY-VT-N9a"/>
+                    <constraint firstItem="jte-t7-tUJ" firstAttribute="leading" secondItem="CsP-sa-TbT" secondAttribute="trailing" constant="89" id="c2z-WT-M71"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CsP-sa-TbT" secondAttribute="bottom" constant="6.5" id="cID-Rg-GgC"/>
                     <constraint firstItem="6ng-rf-7lh" firstAttribute="leading" secondItem="gVl-IC-FqX" secondAttribute="trailing" constant="17" id="dgY-HQ-kPp"/>
+                    <constraint firstItem="jte-t7-tUJ" firstAttribute="baseline" secondItem="WSY-TL-0Gr" secondAttribute="baseline" id="eCu-NZ-Rh5"/>
+                    <constraint firstItem="WSY-TL-0Gr" firstAttribute="baseline" secondItem="jte-t7-tUJ" secondAttribute="baseline" id="fpT-BD-WCc"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="baseline" secondItem="WSY-TL-0Gr" secondAttribute="baseline" id="inC-YC-A53"/>
+                    <constraint firstItem="jte-t7-tUJ" firstAttribute="firstBaseline" secondItem="CsP-sa-TbT" secondAttribute="firstBaseline" id="jff-q2-bZQ"/>
                     <constraint firstItem="gVl-IC-FqX" firstAttribute="leading" secondItem="Obv-T4-JPg" secondAttribute="leadingMargin" id="jqD-CP-i5h"/>
+                    <constraint firstItem="jte-t7-tUJ" firstAttribute="firstBaseline" secondItem="WSY-TL-0Gr" secondAttribute="firstBaseline" id="jsT-VZ-xxK"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="baseline" secondItem="jte-t7-tUJ" secondAttribute="baseline" id="l1n-L4-6xd"/>
                     <constraint firstItem="gVl-IC-FqX" firstAttribute="top" secondItem="Obv-T4-JPg" secondAttribute="topMargin" id="mL8-W0-a3J"/>
                     <constraint firstItem="qwn-MY-qwy" firstAttribute="top" secondItem="gVl-IC-FqX" secondAttribute="bottom" constant="16.5" id="mje-fY-i8q"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="baseline" secondItem="WSY-TL-0Gr" secondAttribute="baseline" id="nQU-4h-GQ5"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="leading" secondItem="Obv-T4-JPg" secondAttribute="leading" constant="71" id="nn4-qO-zrZ"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="firstBaseline" secondItem="WSY-TL-0Gr" secondAttribute="firstBaseline" id="oUL-QR-uLt"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="top" secondItem="WSY-TL-0Gr" secondAttribute="top" id="rEx-FF-gHk"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="firstBaseline" secondItem="jte-t7-tUJ" secondAttribute="firstBaseline" id="tyx-bq-Otd"/>
+                    <constraint firstItem="jte-t7-tUJ" firstAttribute="baseline" secondItem="CsP-sa-TbT" secondAttribute="baseline" id="vvg-Yi-trH"/>
                     <constraint firstItem="gVl-IC-FqX" firstAttribute="leading" secondItem="qwn-MY-qwy" secondAttribute="leading" id="x2p-5g-D8Z"/>
+                    <constraint firstItem="WSY-TL-0Gr" firstAttribute="baseline" secondItem="CsP-sa-TbT" secondAttribute="baseline" id="xF0-wQ-Kil"/>
+                    <constraint firstItem="CsP-sa-TbT" firstAttribute="bottom" secondItem="WSY-TL-0Gr" secondAttribute="bottom" id="zUI-E4-LQ5"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="detailImageButton" destination="gVl-IC-FqX" id="Cy2-dv-KeP"/>
                 <outlet property="detailTweet" destination="qwn-MY-qwy" id="Om1-EL-kCN"/>
-                <outlet property="detailUserHandle" destination="LJV-MA-X16" id="jkn-lM-i6I"/>
                 <outlet property="detailUsername" destination="6ng-rf-7lh" id="S1v-Ga-sRf"/>
             </connections>
             <point key="canvasLocation" x="283" y="304"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="arrow" width="20" height="20"/>
+        <image name="retweet" width="20" height="20"/>
+        <image name="star" width="20" height="20"/>
+    </resources>
 </document>
