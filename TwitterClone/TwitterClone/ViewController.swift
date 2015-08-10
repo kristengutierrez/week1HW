@@ -121,7 +121,6 @@ extension ViewController: UITableViewDataSource {
       var itvc = segue.destinationViewController as! IndividualTweetViewController;
       var selectedIndexPath = self.tableView.indexPathForSelectedRow()
       var selectedRow: Tweet = self.tweets[selectedIndexPath!.row]
-      println(selectedRow.originalTweet)
       itvc.tweets.append(selectedRow)
       
     }

@@ -17,8 +17,4 @@ class DetailTweetCell: UITableViewCell {
   
   @IBOutlet weak var detailUsername: UILabel!
   
-  @IBAction func profilePicturePressed(sender: AnyObject) {
-    
-    
-  }
 }

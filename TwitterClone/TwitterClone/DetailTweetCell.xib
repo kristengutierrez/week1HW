@@ -35,9 +35,6 @@
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <connections>
-                            <action selector="profilePicturePressed:" destination="Jq5-1l-e9n" eventType="touchUpInside" id="0Zo-6k-adh"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CsP-sa-TbT">
                         <rect key="frame" x="71" y="153" width="20" height="20"/>

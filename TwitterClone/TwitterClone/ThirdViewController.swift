@@ -33,8 +33,10 @@ class ThirdViewController : UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    thirdTableView.estimatedRowHeight = 70
+    thirdTableView.estimatedRowHeight = 40
     thirdTableView.rowHeight = UITableViewAutomaticDimension
+    thirdTableView.dataSource = self
+
     
     
     if let thirdView = NSBundle.mainBundle().loadNibNamed("TweetCell", owner: self, options: nil).first as? TweetCell {

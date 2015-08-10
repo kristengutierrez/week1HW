@@ -101,10 +101,10 @@ extension IndividualTweetViewController: UITableViewDataSource {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "secondSegue" {
-      var itvc = segue.destinationViewController as! ThirdViewController;
+      var vc = segue.destinationViewController as! ThirdViewController;
       var selectedIndexPath = self.secondTableView.indexPathForSelectedRow()
       var selectedRow: Tweet = self.tweets[selectedIndexPath!.row]
-      itvc.tweets.append(selectedRow)
+      vc.tweets.append(selectedRow)
       
     }
   }
