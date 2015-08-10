@@ -23,6 +23,8 @@ class ViewController : UIViewController {
 
     //self.navigationController?.navigationBarHidden = true
 
+    
+    tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TimelineTweetCell")
     tableView.estimatedRowHeight = 70
     tableView.rowHeight = UITableViewAutomaticDimension
     
@@ -70,7 +72,7 @@ extension ViewController: UITableViewDataSource {
     return self.tweets.count
   }
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TweetCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("TimelineTweetCell", forIndexPath: indexPath) as! TweetCell
     
     cell.tag++
     let tag = cell.tag

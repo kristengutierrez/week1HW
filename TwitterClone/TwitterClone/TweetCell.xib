@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TimelineTweetCell" rowHeight="137" id="Wa3-Xy-M2r" customClass="TweetCell" customModule="TwitterClone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wa3-Xy-M2r" id="MIi-52-6q5">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0W-9r-5NS">
+                        <rect key="frame" x="90" y="109" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="Fm7-2z-AQ3"/>
+                            <constraint firstAttribute="height" constant="20" id="o1j-ml-lna"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="arrow">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrJ-2k-enb">
+                        <rect key="frame" x="199" y="109" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="cxX-ki-G29"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="retweet">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loJ-ue-xVZ">
+                        <rect key="frame" x="309" y="109" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="vLQ-6l-1ux"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="star">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Bh-io-pOh">
+                        <rect key="frame" x="90" y="1" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cep-SA-vmK">
+                        <rect key="frame" x="6" y="6" width="75" height="75"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="EIg-5m-6bR"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDK-N5-NKC">
+                        <rect key="frame" x="90" y="22" width="510" height="74"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="IrJ-2k-enb" firstAttribute="baseline" secondItem="loJ-ue-xVZ" secondAttribute="baseline" id="01w-NZ-Soi"/>
+                    <constraint firstItem="loJ-ue-xVZ" firstAttribute="baseline" secondItem="IrJ-2k-enb" secondAttribute="baseline" id="09H-p7-HnH"/>
+                    <constraint firstItem="IrJ-2k-enb" firstAttribute="leading" secondItem="MIi-52-6q5" secondAttribute="leading" constant="199" id="3DF-OB-qtC"/>
+                    <constraint firstItem="IrJ-2k-enb" firstAttribute="baseline" secondItem="Z0W-9r-5NS" secondAttribute="baseline" id="4el-NR-IC5"/>
+                    <constraint firstAttribute="trailing" secondItem="bDK-N5-NKC" secondAttribute="trailing" id="9Ak-cJ-S9s"/>
+                    <constraint firstItem="loJ-ue-xVZ" firstAttribute="firstBaseline" secondItem="IrJ-2k-enb" secondAttribute="firstBaseline" id="9dT-Mo-P3T"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="leading" secondItem="MIi-52-6q5" secondAttribute="leadingMargin" constant="82" id="Fkq-w0-94Q"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="top" secondItem="IrJ-2k-enb" secondAttribute="top" id="Fxx-hL-kMG"/>
+                    <constraint firstItem="IrJ-2k-enb" firstAttribute="firstBaseline" secondItem="loJ-ue-xVZ" secondAttribute="firstBaseline" id="Gx3-SW-YwP"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="baseline" secondItem="loJ-ue-xVZ" secondAttribute="baseline" id="IEC-n7-YEX"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Z0W-9r-5NS" secondAttribute="bottom" constant="-0.5" id="Iea-hz-mUb"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="firstBaseline" secondItem="loJ-ue-xVZ" secondAttribute="firstBaseline" id="Nc7-Gr-SZI"/>
+                    <constraint firstItem="loJ-ue-xVZ" firstAttribute="leading" secondItem="IrJ-2k-enb" secondAttribute="trailing" constant="90" id="Otf-fz-GvW"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="cep-SA-vmK" secondAttribute="bottom" constant="47.5" id="QaZ-2E-ff3"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="baseline" secondItem="IrJ-2k-enb" secondAttribute="baseline" id="Vrn-QP-F7E"/>
+                    <constraint firstItem="0Bh-io-pOh" firstAttribute="top" secondItem="MIi-52-6q5" secondAttribute="topMargin" constant="-7" id="W4k-6l-F5E"/>
+                    <constraint firstItem="IrJ-2k-enb" firstAttribute="firstBaseline" secondItem="Z0W-9r-5NS" secondAttribute="firstBaseline" id="Wtk-Ux-7MU"/>
+                    <constraint firstItem="loJ-ue-xVZ" firstAttribute="top" secondItem="bDK-N5-NKC" secondAttribute="bottom" constant="13" id="XDv-iR-AlG"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="top" secondItem="loJ-ue-xVZ" secondAttribute="top" id="Y7F-7C-D6j"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="firstBaseline" secondItem="IrJ-2k-enb" secondAttribute="firstBaseline" id="Yna-Fq-tT9"/>
+                    <constraint firstItem="loJ-ue-xVZ" firstAttribute="baseline" secondItem="Z0W-9r-5NS" secondAttribute="baseline" id="bqu-dn-vob"/>
+                    <constraint firstItem="cep-SA-vmK" firstAttribute="top" secondItem="MIi-52-6q5" secondAttribute="topMargin" constant="-2" id="cM6-CK-Cki"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="leading" secondItem="0Bh-io-pOh" secondAttribute="leading" id="fFD-kJ-jNq"/>
+                    <constraint firstItem="loJ-ue-xVZ" firstAttribute="firstBaseline" secondItem="Z0W-9r-5NS" secondAttribute="firstBaseline" id="gLa-Ep-a8k"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="bottom" secondItem="IrJ-2k-enb" secondAttribute="bottom" id="gin-6w-eVB"/>
+                    <constraint firstItem="bDK-N5-NKC" firstAttribute="top" secondItem="0Bh-io-pOh" secondAttribute="bottom" id="ivd-Fc-HAL"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="bottom" secondItem="loJ-ue-xVZ" secondAttribute="bottom" id="m0H-Pm-2Mu"/>
+                    <constraint firstItem="0Bh-io-pOh" firstAttribute="leading" secondItem="cep-SA-vmK" secondAttribute="trailing" constant="9" id="oSB-3N-Zxe"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="baseline" secondItem="loJ-ue-xVZ" secondAttribute="baseline" id="pxR-0t-zkt"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="baseline" secondItem="IrJ-2k-enb" secondAttribute="baseline" id="qDB-ji-lQD"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="leading" secondItem="bDK-N5-NKC" secondAttribute="leading" id="t9F-4p-BBA"/>
+                    <constraint firstItem="cep-SA-vmK" firstAttribute="leading" secondItem="MIi-52-6q5" secondAttribute="leadingMargin" constant="-2" id="taV-ZH-0FR"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="firstBaseline" secondItem="loJ-ue-xVZ" secondAttribute="firstBaseline" id="uLE-Du-O3n"/>
+                    <constraint firstItem="Z0W-9r-5NS" firstAttribute="top" secondItem="0Bh-io-pOh" secondAttribute="bottom" constant="87" id="vbo-re-XYr"/>
+                    <constraint firstItem="bDK-N5-NKC" firstAttribute="leading" secondItem="0Bh-io-pOh" secondAttribute="leading" id="zTW-dm-dK8"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Fkq-w0-94Q"/>
+                        <exclude reference="fFD-kJ-jNq"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="profileImageView" destination="cep-SA-vmK" id="phP-lm-EBY"/>
+                <outlet property="tweetLabel" destination="bDK-N5-NKC" id="QKZ-8l-kUd"/>
+                <outlet property="usernameLabel" destination="0Bh-io-pOh" id="ELg-Bq-0Ho"/>
+            </connections>
+            <point key="canvasLocation" x="-851" y="-1076.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow" width="20" height="20"/>
+        <image name="retweet" width="20" height="20"/>
+        <image name="star" width="20" height="20"/>
+    </resources>
+</document>

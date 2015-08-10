@@ -19,8 +19,10 @@ class IndividualTweetViewController : UIViewController {
   let imageQueue = NSOperationQueue()
   override func viewDidLoad() {
     super.viewDidLoad()
-    println(tweets.count)
-    
+//    println(tweets.count)
+    secondTableView.estimatedRowHeight = 70
+    secondTableView.rowHeight = UITableViewAutomaticDimension
+
     secondTableView.registerNib(UINib(nibName: "DetailTweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "IndividualTweet")
   }
   
@@ -91,8 +93,30 @@ extension IndividualTweetViewController: UITableViewDataSource {
       cell.detailTweet.text = tweet.originalQuotedTweet
     } else {
       cell.detailTweet.text = tweet.text
+      println(tweet.text)
     }
     
     return cell
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "secondSegue" {
+      var itvc = segue.destinationViewController as! ThirdViewController;
+      var selectedIndexPath = self.secondTableView.indexPathForSelectedRow()
+      var selectedRow: Tweet = self.tweets[selectedIndexPath!.row]
+      //println(selectedRow.originalTweet)
+      itvc.tweets.append(selectedRow)
+      
+    }
+  }
+  
+}
+
+
+//MARK: UITableViewDelegate2
+extension IndividualTweetViewController : UITableViewDelegate {
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        self.performSegueWithIdentifier("cellSegue", sender: self)
   }
 }
