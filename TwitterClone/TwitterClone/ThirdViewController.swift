@@ -14,45 +14,45 @@ class ThirdViewController : UIViewController {
   @IBOutlet weak var thirdTableView: UITableView!
   
   @IBOutlet weak var backgroundImage: UIImageView!
-
+  
   
   @IBOutlet weak var userProfilePicture: UIImageView!
   @IBOutlet weak var userUsername: UILabel!
   
   @IBOutlet weak var userLocation: UILabel!
   
-
   
-//  func button (NSObject){
-//    self.performSegueWithIdentifier("secondSegue", sender: self)
-//  }
   
-    var tweets = [Tweet]()
+  //  func button (NSObject){
+  //    self.performSegueWithIdentifier("secondSegue", sender: self)
+  //  }
+  
+  var tweets = [Tweet]()
   
   let imageQueue = NSOperationQueue()
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     thirdTableView.estimatedRowHeight = 70
     thirdTableView.rowHeight = UITableViewAutomaticDimension
-
+    
     
     if let thirdView = NSBundle.mainBundle().loadNibNamed("TweetCell", owner: self, options: nil).first as? TweetCell {
       view.addSubview(thirdView)
     }
-//    var tweet = tweets[indexPath.row]
-//    var userID = tweet.screenname
-//    
-//    TwitterService.tweetsFromUserTimeline(userID) ({ (errorDescription, tweets) -> (Void) in
-//      if let tweets = tweets {
-//        //Do on main queue because you might have multiple things trying to change the array
-//        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-//          self.tweets = tweets
-//          self.tableView.reloadData()
-//        }
-//        
-//      }
-//      })
+    //    var tweet = tweets[indexPath.row]
+    //    var userID = tweet.screenname
+    //
+    //    TwitterService.tweetsFromUserTimeline(userID) ({ (errorDescription, tweets) -> (Void) in
+    //      if let tweets = tweets {
+    //        //Do on main queue because you might have multiple things trying to change the array
+    //        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+    //          self.tweets = tweets
+    //          self.tableView.reloadData()
+    //        }
+    //
+    //      }
+    //      })
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -64,8 +64,8 @@ extension ThirdViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.tweets.count
   }
-
-
+  
+  
   
   
   
@@ -79,7 +79,7 @@ extension ThirdViewController: UITableViewDataSource {
     
     if let backgroundUserImage = tweet.backgroundImage {
       if let headerImageURL = NSURL(string: tweet.backgroundImageURL!),
-      headerImageData = NSData(contentsOfURL: headerImageURL),
+        headerImageData = NSData(contentsOfURL: headerImageURL),
         headerImage = UIImage(data: headerImageData) {
           backgroundImage.image = headerImage
       }
@@ -87,7 +87,7 @@ extension ThirdViewController: UITableViewDataSource {
     
     userLocation.text = tweet.location
     userUsername.text = tweet.username
-
+    
     
     
     if let profileImage = tweet.profileImage {
@@ -139,7 +139,6 @@ extension ThirdViewController: UITableViewDataSource {
       cell.tweetLabel.text = tweet.text
     }
     
-    //backgroundImage.image = tweet.backgroundImageURL
     
     
     

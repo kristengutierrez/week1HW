@@ -12,11 +12,11 @@ import UIKit
 class DetailTweetCell: UITableViewCell {
   
   @IBOutlet weak var detailImageButton: UIButton!
-
+  
   @IBOutlet weak var detailTweet: UILabel!
-
+  
   @IBOutlet weak var detailUsername: UILabel!
-
+  
   @IBAction func profilePicturePressed(sender: AnyObject) {
     
     

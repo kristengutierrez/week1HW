@@ -10,19 +10,19 @@
 import UIKit
 
 class IndividualTweetViewController : UIViewController {
-
-
+  
+  
   
   @IBOutlet weak var secondTableView: UITableView!
-
-    var tweets = [Tweet]()
+  
+  var tweets = [Tweet]()
   let imageQueue = NSOperationQueue()
   override func viewDidLoad() {
     super.viewDidLoad()
     secondTableView.estimatedRowHeight = 70
     secondTableView.rowHeight = UITableViewAutomaticDimension
     secondTableView.dataSource = self
-//    secondTableView.delegate = self
+    secondTableView.delegate = self
     secondTableView.registerNib(UINib(nibName: "DetailTweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "IndividualTweet")
   }
   
@@ -36,7 +36,7 @@ extension IndividualTweetViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.tweets.count
   }
-
+  
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("IndividualTweet", forIndexPath: indexPath) as! DetailTweetCell
     cell.detailUsername.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
@@ -75,7 +75,7 @@ extension IndividualTweetViewController: UITableViewDataSource {
         
       })
     }
-
+    
     
     if let originalUsername = tweet.originalUsername {
       cell.detailUsername.text = tweet.originalUsername
@@ -94,7 +94,7 @@ extension IndividualTweetViewController: UITableViewDataSource {
       cell.detailTweet.text = tweet.text
     }
     
-
+    
     
     return cell
   }
@@ -116,6 +116,6 @@ extension IndividualTweetViewController: UITableViewDataSource {
 extension IndividualTweetViewController : UITableViewDelegate {
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-       self.performSegueWithIdentifier("secondSegue", sender: self)
+    self.performSegueWithIdentifier("secondSegue", sender: self)
   }
 }

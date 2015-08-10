@@ -9,9 +9,9 @@
 import UIKit
 
 class ViewController : UIViewController {
-    
+  
   @IBOutlet weak var tableView: UITableView!
-
+  
   
   var tweets = [Tweet]()
   let imageQueue = NSOperationQueue()
@@ -20,9 +20,9 @@ class ViewController : UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     //self.navigationController?.navigationBarHidden = true
-
+    
     
     tableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TimelineTweetCell")
     tableView.estimatedRowHeight = 70
@@ -51,20 +51,20 @@ class ViewController : UIViewController {
           }
         })
       }
-  }
+    }
     
     
-  
+    
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateLabels", name: UIContentSizeCategoryDidChangeNotification, object: nil)
   }
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
-      }
+  }
 }
 //MARK: UITableViewDataSource
 extension ViewController: UITableViewDataSource {
@@ -104,16 +104,16 @@ extension ViewController: UITableViewDataSource {
               tweet.profileImage = image
               self.tweets[indexPath.row] = tweet
               if cell.tag == tag {
-              cell.profileImageView.setBackgroundImage(image, forState: UIControlState.Normal)
+                cell.profileImageView.setBackgroundImage(image, forState: UIControlState.Normal)
               }
             })
-
+            
         }
         
       })
-  }
-
-  
+    }
+    
+    
     return cell
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -128,11 +128,11 @@ extension ViewController: UITableViewDataSource {
   }
   
   
-  }
+}
 
 //MARK: UITableViewDelegate
 extension ViewController : UITableViewDelegate {
-
+  
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     self.performSegueWithIdentifier("cellSegue", sender: self)
   }
