@@ -118,9 +118,9 @@ extension ViewController: UITableViewDataSource {
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "cellSegue" {
-      var itvc = segue.destinationViewController as! IndividualTweetViewController;
-      var selectedIndexPath = self.tableView.indexPathForSelectedRow()
-      var selectedRow: Tweet = self.tweets[selectedIndexPath!.row]
+      let itvc = segue.destinationViewController as! IndividualTweetViewController;
+      let selectedIndexPath = self.tableView.indexPathForSelectedRow()
+      let selectedRow: Tweet = self.tweets[selectedIndexPath!.row]
       itvc.tweets.append(selectedRow)
       
     }

@@ -39,8 +39,8 @@ class ThirdViewController : UIViewController {
 
     
     
-    if let thirdView = NSBundle.mainBundle().loadNibNamed("TweetCell", owner: self, options: nil).first as? TweetCell {
-      view.addSubview(thirdView)
+    
+    thirdTableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TimelineTweetCell")
     }
     //    var tweet = tweets[indexPath.row]
     //    var userID = tweet.screenname
@@ -55,7 +55,7 @@ class ThirdViewController : UIViewController {
     //
     //      }
     //      })
-  }
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
