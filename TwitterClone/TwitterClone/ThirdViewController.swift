@@ -13,6 +13,16 @@ class ThirdViewController : UIViewController {
   
   @IBOutlet weak var thirdTableView: UITableView!
   
+  @IBOutlet weak var backgroundImage: UIImageView!
+
+  
+  @IBOutlet weak var userProfilePicture: UIImageView!
+  @IBOutlet weak var userUsername: UILabel!
+  
+  @IBOutlet weak var userLocation: UILabel!
+  
+
+  
   func button (NSObject){
     self.performSegueWithIdentifier("secondSegue", sender: self)
   }
@@ -24,8 +34,16 @@ class ThirdViewController : UIViewController {
 
     thirdTableView.estimatedRowHeight = 70
     thirdTableView.rowHeight = UITableViewAutomaticDimension
+
     
-    thirdTableView.registerNib(UINib(nibName: "TweetCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TimelineTweetCell")
+    if let thirdView = NSBundle.mainBundle().loadNibNamed("TweetCell", owner: self, options: nil).first as? TweetCell {
+      view.addSubview(thirdView)
+    }
+    
+    
+    
+    
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -46,6 +64,20 @@ extension ThirdViewController: UITableViewDataSource {
     let tag = cell.tag
     
     let tweet = tweets[indexPath.row]
+    
+    if let backgroundUserImage = tweet.backgroundImage {
+      if let headerImageURL = NSURL(string: tweet.backgroundImageURL!),
+      headerImageData = NSData(contentsOfURL: headerImageURL),
+        headerImage = UIImage(data: headerImageData) {
+          backgroundImage.image = headerImage
+      }
+    }
+    
+    userLocation.text = tweet.location
+    userUsername.text = tweet.username
+
+    
+    
     if let profileImage = tweet.profileImage {
       cell.profileImageView.setBackgroundImage(profileImage, forState: UIControlState.Normal)
     } else {
@@ -64,7 +96,7 @@ extension ThirdViewController: UITableViewDataSource {
               size =  CGSize(width: 80, height: 80)
             }
             let resizedImage = ImageResizer.resizeImage(image, size: size)
-            
+            self.userProfilePicture.image = tweet.profileImage
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
               self.tweets[indexPath.row].profileImage = image
               self.tweets[indexPath.row] = tweet
@@ -93,10 +125,9 @@ extension ThirdViewController: UITableViewDataSource {
       cell.tweetLabel.text = tweet.originalQuotedTweet
     } else {
       cell.tweetLabel.text = tweet.text
-      println(tweet.text)
     }
     
-
+    //backgroundImage.image = tweet.backgroundImageURL
     
     
     

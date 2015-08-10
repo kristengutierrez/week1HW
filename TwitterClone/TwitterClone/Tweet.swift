@@ -17,5 +17,8 @@ struct Tweet {
   var profileImage : UIImage?
   let originalQuotedTweet : String?
   let originalQuotedUsername : String?
+  let backgroundImageURL : String?
+  var backgroundImage : UIImage?
+  let location : String?
 }
 

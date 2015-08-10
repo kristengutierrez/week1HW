@@ -23,10 +23,12 @@ class TweetJSONParser {
           id = tweetObject["id_str"] as? String,
           userInfo = tweetObject["user"] as? [String : AnyObject],
           username = userInfo["name"] as? String,
+          location = userInfo["location"] as? String,
+          backgroundImageURL = userInfo["profile_background_image_url"] as? String,
           profileImageURL = userInfo["profile_image_url"] as? String {
             
             var biggerProfilePicture = profileImageURL.stringByReplacingOccurrencesOfString("normal.jpg", withString: "bigger.png", options: nil, range: nil)
-            var tweet = Tweet(text: text, username: username, id: id, profileImageURL: biggerProfilePicture, originalTweet: nil, originalUsername: nil, profileImage: nil, originalQuotedTweet: nil, originalQuotedUsername: nil)
+            var tweet = Tweet(text: text, username: username, id: id, profileImageURL: biggerProfilePicture, originalTweet: nil, originalUsername: nil, profileImage: nil, originalQuotedTweet: nil, originalQuotedUsername: nil, backgroundImageURL: nil, backgroundImage : nil, location: nil)
             
             if let imageURL = NSURL(string: tweet.profileImageURL!),
             imageData = NSData(contentsOfURL: imageURL),
@@ -38,7 +40,7 @@ class TweetJSONParser {
             originalQuotedTweet = quotedTweet["text"] as? String,
             originalQuotedUserInfo = quotedTweet["user"] as? [String : AnyObject],
               originalQuotedUsername = originalQuotedUserInfo["name"] as? String {
-                let tweet = Tweet(text: text, username: username, id: id, profileImageURL: biggerProfilePicture, originalTweet: nil, originalUsername: nil, profileImage: nil, originalQuotedTweet: originalQuotedTweet, originalQuotedUsername: originalQuotedUsername)
+                let tweet = Tweet(text: text, username: username, id: id, profileImageURL: biggerProfilePicture, originalTweet: nil, originalUsername: nil, profileImage: nil, originalQuotedTweet: originalQuotedTweet, originalQuotedUsername: originalQuotedUsername, backgroundImageURL: nil, backgroundImage : nil, location: nil)
                 tweets.append(tweet)
                 
             } else {
@@ -47,7 +49,7 @@ class TweetJSONParser {
               originalUserInfo = retweet["user"] as? [String : AnyObject],
               originalUsername = originalUserInfo["name"] as? String {
                 
-                let tweet = Tweet(text: text, username: username, id: id, profileImageURL: biggerProfilePicture, originalTweet: originalTweet, originalUsername: originalUsername, profileImage: nil, originalQuotedTweet: nil, originalQuotedUsername: nil)
+                let tweet = Tweet(text: text, username: username, id: id, profileImageURL: biggerProfilePicture, originalTweet: originalTweet, originalUsername: originalUsername, profileImage: nil, originalQuotedTweet: nil, originalQuotedUsername: nil, backgroundImageURL: nil, backgroundImage : nil, location: nil)
                  tweets.append(tweet)
             } else {
               tweets.append(tweet)
